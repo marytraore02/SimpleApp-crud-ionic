@@ -1,0 +1,7 @@
+{
+  "name": "manage-employee",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
