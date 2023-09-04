@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { async } from '@angular/core/testing';
 import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from './Employee.model';
+import { Employee } from '../Employee.model';
 import { HttpResponse } from '@angular/common/http';
 
 

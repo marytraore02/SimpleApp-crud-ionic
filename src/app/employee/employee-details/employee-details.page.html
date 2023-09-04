@@ -28,6 +28,7 @@
         <ion-label>{{employee.nom}}</ion-label>
         <ion-label>{{employee.age}}</ion-label>
         <ion-label>{{employee.salaire}}</ion-label>
+        <ion-label>{{employee.deptName}}</ion-label>
         <ion-icon slot="end" color="primary" name="create" [routerLink]="['/','UpdateEmployee',employee.id]" ></ion-icon>
         <ion-icon slot="end" color="danger" name="trash" (click)="deleteEmployee(employee.id)"></ion-icon>
       </ion-item>
