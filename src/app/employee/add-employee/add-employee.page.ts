@@ -12,6 +12,7 @@ import { Employee } from '../Employee.model';
 })
 export class AddEmployeePage implements OnInit {
   emp!: Employee;
+  data: any;
   constructor(private empService: EmployeeService,
               private toastController: ToastController,
               private activateRoute: ActivatedRoute,
@@ -19,7 +20,19 @@ export class AddEmployeePage implements OnInit {
 
 
   ngOnInit() {
+    // On creer un objet
     this.emp = new Employee();
+
+    // On recupère d'Id dans le paramètre
+    const id = this.activateRoute.snapshot.paramMap.get('id');
+    console.log('Employee Id ' + id );
+    if ( id !== null ) {
+      console.log('Id is not Null Setting details for Employee');
+      this.empService.getEmployeeById(id).subscribe((emp: HttpResponse<Employee>) => {
+        this.data = emp.body;
+        console.log(this.data);
+      });
+    }
   }
 
   // Save méthode
@@ -30,6 +43,17 @@ export class AddEmployeePage implements OnInit {
     this.empService.addEmployee(this.emp).subscribe(async (emp: HttpResponse<Employee>) => {
       let toast = await this.toastController.create({
         message: 'Details Added for ' + this.emp.nom,
+        duration: 3000
+      });
+      return await toast.present().then(() => {
+        this.navCtrl.navigateRoot('home');
+      });
+    });
+  } else {
+    console.log('inside update method');
+    this.empService.updateEmployee(this.emp).subscribe(async (emp: HttpResponse<Employee>) => {
+      let toast = await this.toastController.create({
+        message: 'Details Updated for ' + this.emp.nom,
         duration: 3000
       });
       return await toast.present().then(() => {

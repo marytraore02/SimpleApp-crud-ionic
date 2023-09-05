@@ -32,6 +32,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'UpdateEmployee/:id',
+    loadChildren: () =>
+      import('./employee/add-employee/add-employee.module').then(
+        (m) => m.AddEmployeePageModule
+      ),
+  },
+  {
     path: 'add-employee',
     loadChildren: () =>
       import('./employee/add-employee/add-employee.module').then(
