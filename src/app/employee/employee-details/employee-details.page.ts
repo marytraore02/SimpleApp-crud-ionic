@@ -75,4 +75,4 @@ export class EmployeeDetailsPage implements OnInit {
     }, 2000);
   }
 
-}
+} 

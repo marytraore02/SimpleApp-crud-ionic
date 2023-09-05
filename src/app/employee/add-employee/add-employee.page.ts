@@ -23,7 +23,7 @@ export class AddEmployeePage implements OnInit {
   }
 
   // Save méthode
-  save() {
+  async save() {
     console.log('Employee Id coming from form' + this.emp.id);
     if (this.emp.id === undefined) {
     console.log('inside save method');
@@ -36,7 +36,7 @@ export class AddEmployeePage implements OnInit {
         this.navCtrl.navigateRoot('home');
       });
     });
-  } 
+  }
 }
 
 }
