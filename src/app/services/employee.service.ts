@@ -14,11 +14,18 @@ export class EmployeeService {
 
   //Afficher
   getAllEmployee(): Observable<HttpResponse<Employee[]>> {
-    return this.http.get<Employee[]>(this.URL, { observe: 'response' });
+    return this.http.get<Employee[]>(this.URL, {observe: 'response'});
   }
 
+  // Add employee
+  addEmployee(emp: Employee): Observable<HttpResponse<Employee>> {
+    return this.http.post<Employee>(this.URL, emp, {observe: 'response'});
+  }
+  
   // Supprimer
   deleteEmployee(id: string): Observable<HttpResponse<void>> {
-    return this.http.delete<void>(this.URL + '/ ' + id, { observe: 'response' });
+    return this.http.delete<void>(this.URL + '/ ' + id, {
+      observe: 'response',
+    });
   }
 }
