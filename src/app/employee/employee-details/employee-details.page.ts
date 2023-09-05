@@ -42,13 +42,13 @@ export class EmployeeDetailsPage implements OnInit {
       message: 'Do You agree to Delete',
       buttons: [
           {
-            text: 'Disagree',
+            text: 'Annuler',
             handler: () => {
               console.log('Pressed Disagree');
             }
           },
           {
-            text: 'Agree',
+            text: 'Supprimer',
             handler: () => {
               this.employeeService.deleteEmployee(id).subscribe(async () => {
                 let toast = await this.toastConmtroller.create({

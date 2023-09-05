@@ -63,4 +63,9 @@ export class AddEmployeePage implements OnInit {
   }
 }
 
+back(): void {
+  window.history.back()
+}
+
+
 }

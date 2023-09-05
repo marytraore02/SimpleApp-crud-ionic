@@ -4,35 +4,31 @@
       <ion-icon name="arrow-back-outline" (click)="back()" class="retour"></ion-icon>
     </ion-buttons>
     <ion-title>
-      Add New Employee
+      Update employee
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form name="editForm" #editForm="ngForm" (ngSubmit)="save()" novalidate>
+    <form name="editForm" #editForm="ngForm" (ngSubmit)="updateEntity(data.id, data)" novalidate>
       <ion-list>
         <ion-item>
-          <ion-label>Id ::- </ion-label>
-          <ion-input name="id" [(ngModel)]="emp.id" readonly></ion-input>
-        </ion-item>
-        <ion-item>
           <ion-label>Nom ::- </ion-label>
-          <ion-input name="nom" [(ngModel)]="emp.nom" required></ion-input>
+          <ion-input name="nom" [(ngModel)]="nom" [value]="nom" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Age ::- </ion-label>
-          <ion-input name="age" [(ngModel)]="emp.age" required></ion-input>
+          <ion-input name="age" [(ngModel)]="age" [value]="age" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Salaire ::- </ion-label>
-          <ion-input name="salaire" [(ngModel)]="emp.salaire" required></ion-input>
+          <ion-input name="salaire" [(ngModel)]="salaire" [value]="salaire" required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Department ::- </ion-label>
-            <ion-input name="deptName" [(ngModel)]="emp.deptName" required></ion-input>
+            <ion-input name="dept" [(ngModel)]="dept" [value]="dept" required></ion-input>
           </ion-item>  
       </ion-list>
-      <ion-button [disabled]="editForm.form.invalid" (click)="save()" >Save</ion-button>
+      <ion-button [disabled]="editForm.form.invalid" type="submit" >Update</ion-button>
     </form>
 </ion-content>

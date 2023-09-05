@@ -31,19 +31,23 @@ const routes: Routes = [
         (m) => m.AddEmployeePageModule
       ),
   },
-  {
-    path: 'UpdateEmployee/:id',
-    loadChildren: () =>
-      import('./employee/add-employee/add-employee.module').then(
-        (m) => m.AddEmployeePageModule
-      ),
-  },
+  // {
+  //   path: 'UpdateEmployee/:id',
+  //   loadChildren: () =>
+  //     import('./employee/add-employee/add-employee.module').then(
+  //       (m) => m.AddEmployeePageModule
+  //     ),
+  // },
   {
     path: 'add-employee',
     loadChildren: () =>
       import('./employee/add-employee/add-employee.module').then(
         (m) => m.AddEmployeePageModule
       ),
+  },
+  {
+    path: 'update-empooyee/:id',
+    loadChildren: () => import('./employee/update-empooyee/update-empooyee.module').then( m => m.UpdateEmpooyeePageModule)
   },
 ];
 
